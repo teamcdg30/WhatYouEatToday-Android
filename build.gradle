@@ -1,25 +1,66 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.3.30'
+
+    ext {
+        kotlin_version           = '1.3.30'
+        gson_version             = '2.8.4'
+        rxjava_version           = '2.1.1'
+        rxkotlin_version         = '2.1.0'
+        rxandroid_version        = '2.0.2'
+        rxrelay_version          = '2.0.0'
+        rxpermission_version     = '0.10.2'
+        dagger_version           = '2.16'
+        stetho_version           = '1.5.0'
+        okhttp_version           = '3.11.0'
+        apollo_version           = '1.0.0'
+        fabric_version           = '1.4.5'
+        lifecycle_version        = '2.0.0-beta01'
+        glide_version            = '4.8.0'
+        google_service_version   = '4.2.0'
+        google_analytics_version = '16.0.6'
+        crashlytics_version      = '2.9.8'
+        robolectricVersion       = '4.0.2'
+    }
+
+    ext {
+        buildTypeDebug     = "develope"
+        buildTypeQa        = "rc"
+        buildTypeRelease   = "release"
+
+        demo       = "demo"
+        production = "production"
+    }
+
+    ext {
+        appName = "Eat"
+    }
+
     repositories {
         google()
         jcenter()
         
     }
     dependencies {
+        classpath 'com.google.gms:google-services:4.2.0'
         classpath 'com.android.tools.build:gradle:3.4.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2'
+//        classpath 'io.fabric.tools:gradle:1.25.4'
     }
 }
 
 allprojects {
     repositories {
+        maven { url 'https://maven.fabric.io/public' }
+        maven {
+            url "https://jitpack.io"
+            credentials { username System.getenv('JITPACK_AUTHTOKEN') }
+        }
         google()
         jcenter()
-        
+        flatDir { dirs 'libs' }
+        mavenCentral()
     }
 }
 

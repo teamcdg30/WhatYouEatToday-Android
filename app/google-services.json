@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "488128350891",
+    "firebase_url": "https://cdg30-1564294718050.firebaseio.com",
+    "project_id": "cdg30-1564294718050",
+    "storage_bucket": "cdg30-1564294718050.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488128350891:android:102db59f77c5d8a6",
+        "android_client_info": {
+          "package_name": "com.cdg.eat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488128350891-7kj700tnq11fgameg95t92d9vesk2vag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj81lSTWfuI4y__MPv-vw1bE4mxWkh0Xk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488128350891-7kj700tnq11fgameg95t92d9vesk2vag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

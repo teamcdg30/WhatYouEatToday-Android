@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.cdg.eat.R
+import com.cdg.eat.choice.ChoiceActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -83,6 +84,8 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun updateUI() {
+        intent.putExtra("userToken",auth.currentUser)
+        startActivity(intent, ChoiceActivity::class.java)
 
     }
 
@@ -90,5 +93,6 @@ class SignInActivity : AppCompatActivity() {
         private const val TAG = "GoogleActivity"
         private const val GOOGLE_SIGN_IN = 9001
     }
+
 }
 

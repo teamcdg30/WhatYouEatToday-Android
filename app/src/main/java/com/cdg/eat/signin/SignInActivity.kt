@@ -36,7 +36,7 @@ class SignInActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         auth = FirebaseAuth.getInstance()
 
-        initListener();
+        initListener()
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -85,7 +85,7 @@ class SignInActivity : AppCompatActivity() {
 
     private fun updateUI() {
         intent.putExtra("userToken",auth.currentUser)
-        startActivity(intent, ChoiceActivity::class.java)
+//        startActivity(intent, ChoiceActivity::class.java)
 
     }
 

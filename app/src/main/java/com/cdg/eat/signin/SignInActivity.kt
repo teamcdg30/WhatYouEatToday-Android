@@ -22,6 +22,11 @@ internal class SignInActivity : BaseActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    companion object {
+        private const val TAG = "GoogleActivity"
+        private const val GOOGLE_SIGN_IN = 9001
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
@@ -48,7 +53,7 @@ internal class SignInActivity : BaseActivity() {
 
             } catch (e: ApiException) {
                 Log.w(TAG, "Google sign in failed", e)
-//                updateUI(null)
+                updateUI(null)
             }
         }
     }
@@ -70,30 +75,22 @@ internal class SignInActivity : BaseActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    updateUI(user)
+                    updateUI(user.toString())
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     Snackbar.make(layout_sign_in, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
-//                    updateUI(null)
+                    updateUI(null)
                 }
 
 //                hideProgressDialog()
             }
     }
 
-    private fun updateUI(user: String) {
+    private fun updateUI(user: String?) {
+        val intent = Intent(this@SignInActivity, ChoiceActivity::class.java)
         intent.putExtra("userToken",auth.currentUser)
-        startActivity(intent, ChoiceActivity::class.java)
-
-
-
+        startActivity(intent)
     }
-
-    companion object {
-        private const val TAG = "GoogleActivity"
-        private const val GOOGLE_SIGN_IN = 9001
-    }
-
 }
 

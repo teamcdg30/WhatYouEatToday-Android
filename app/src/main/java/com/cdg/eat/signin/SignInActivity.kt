@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.cdg.eat.R
+import com.cdg.eat.base.BaseActivity
 import com.cdg.eat.choice.ChoiceActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -16,12 +17,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
-class SignInActivity : AppCompatActivity() {
+internal class SignInActivity : BaseActivity() {
 
-    // [START declare_auth]
     private lateinit var auth: FirebaseAuth
-    // [END declare_auth]
-
     private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,6 +85,8 @@ class SignInActivity : AppCompatActivity() {
     private fun updateUI(user: String) {
         intent.putExtra("userToken",auth.currentUser)
         startActivity(intent, ChoiceActivity::class.java)
+
+
 
     }
 

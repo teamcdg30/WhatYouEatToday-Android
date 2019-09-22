@@ -55,10 +55,6 @@ buildscript {
 allprojects {
     repositories {
         maven { url 'https://maven.fabric.io/public' }
-        maven {
-            url "https://jitpack.io"
-            credentials { username System.getenv('JITPACK_AUTHTOKEN') }
-        }
         google()
         jcenter()
         flatDir { dirs 'libs' }

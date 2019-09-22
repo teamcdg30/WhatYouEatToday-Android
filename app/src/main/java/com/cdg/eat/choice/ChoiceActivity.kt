@@ -7,7 +7,7 @@ import com.cdg.eat.R
 class ChoiceActivity : AppCompatActivity() {
 
     companion object {
-
+        
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
